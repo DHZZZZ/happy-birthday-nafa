@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Birthday Sabriana!</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+  />
   <style>
     canvas#confetti-canvas {
       position: fixed;
@@ -17,25 +21,40 @@
     }
   </style>
 </head>
-<body class="bg-pink-100 flex flex-col items-center justify-center min-h-screen p-4 relative">
+<body class="bg-pink-100 flex flex-col items-center justify-start min-h-screen p-4 space-y-8 relative">
 
   <!-- Confetti -->
   <canvas id="confetti-canvas"></canvas>
 
   <!-- Kontainer Ucapan -->
   <div class="bg-white shadow-xl rounded-2xl p-6 max-w-3xl w-full z-10">
+
     <!-- Judul -->
     <h1 class="text-center text-xl sm:text-2xl font-bold text-pink-700 mb-4 leading-snug">
       🎉 Selamat Ulang Tahun Sabriana Fatimah 🎉
     </h1>
 
-    <!-- Galeri Responsive -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
-      <img src="nafa1.jpg" alt="Sabriana 1" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
-      <img src="nafa2.jpg" alt="Sabriana 2" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
-      <img src="nafa3.jpg" alt="Sabriana 3" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
-      <img src="nafa4.jpg" alt="Sabriana 4" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
-      <img src="nafa5.jpg" alt="Sabriana 4" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
+    <!-- SLIDESHOW -->
+    <div class="swiper w-full rounded-xl shadow mb-6">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="nafa1.jpg" alt="Foto 1" class="w-full h-64 object-cover rounded-xl">
+        </div>
+        <div class="swiper-slide">
+          <img src="nafa2.jpg" alt="Foto 2" class="w-full h-64 object-cover rounded-xl">
+        </div>
+        <div class="swiper-slide">
+          <img src="nafa3.jpg" alt="Foto 3" class="w-full h-64 object-cover rounded-xl">
+        </div>
+        <div class="swiper-slide">
+          <img src="nafa4.jpg" alt="Foto 4" class="w-full h-64 object-cover rounded-xl">
+        </div>
+        <div class="swiper-slide">
+          <img src="nafa5.jpg" alt="Foto 5" class="w-full h-64 object-cover rounded-xl">
+        </div>
+      </div>
+      <!-- Optional navigation -->
+      <div class="swiper-pagination"></div>
     </div>
 
     <!-- Teks Ucapan -->
@@ -59,12 +78,13 @@
 
   <!-- Musik -->
   <audio id="birthdayMusic" loop>
-    <source src="Nadin Amizah - Semua Aku Dirayakan (Official Lyric Video).mp3" type="audio/mpeg">
+    <source src="Nadin-Amizah-Semua-Aku-Dirayakan.mp3" type="audio/mpeg">
     Browser kamu tidak mendukung pemutar audio.
   </audio>
 
-  <!-- Confetti & Musik Script -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script>
     // Confetti
     const duration = 6000;
@@ -89,6 +109,19 @@
         toggleBtn.textContent = "🔊 Putar Musik";
       }
       isPlaying = !isPlaying;
+    });
+
+    // Swiper init
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
     });
   </script>
 </body>
