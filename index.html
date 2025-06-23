@@ -83,10 +83,21 @@
     </p>
   </div>
 
-  <!-- Tombol Menuju Voucher -->
+   <!-- Tombol SPA Voucher -->
   <div class="text-center mb-10">
-    <a href="voucher.html" class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-6 rounded-full shadow-lg">Gift For U
-    </a>
+    <button onclick="showVoucher()" class="wiggle bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-6 rounded-full shadow-lg">
+      🎁 Lihat Voucher Hadiah
+    </button>
+  </div>
+
+  <!-- Voucher SPA Section -->
+  <div id="voucherSection" class="hidden w-full max-w-3xl mx-auto flex flex-col items-center">
+    <div class="mb-10 w-full">
+      <img src="this%20is.png" alt="Voucher Tiket" class="rounded-xl shadow-lg w-full">
+    </div>
+    <div class="mb-8 w-full">
+      <img src="birthday%20gift.png" alt="Voucher Gift" class="rounded-xl shadow-lg w-full">
+    </div>
   </div>
 
   <!-- Musik -->
@@ -139,6 +150,12 @@
         isPlaying = false;
       }
     });
+     // SPA Voucher
+    function showVoucher() {
+      const voucher = document.getElementById("voucherSection");
+      voucher.classList.remove("hidden");
+      voucher.scrollIntoView({ behavior: "smooth" });
+    }
   </script>
 </body>
 </html>
