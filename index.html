@@ -5,11 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Birthday Sabriana!</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
-  />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #ffe4e6;
+    }
     canvas#confetti-canvas {
       position: fixed;
       pointer-events: none;
@@ -19,61 +22,64 @@
       height: 100%;
       z-index: 50;
     }
+    .swiper-slide img {
+      object-fit: cover;
+    }
   </style>
 </head>
-<body class="bg-pink-100 flex flex-col items-center justify-start min-h-screen p-4 space-y-8 relative">
+<body class="relative">
 
   <!-- Confetti -->
   <canvas id="confetti-canvas"></canvas>
 
-  <!-- Kontainer Ucapan -->
-  <div class="bg-white shadow-xl rounded-2xl p-6 max-w-3xl w-full z-10">
+  <!-- Swiper Fullscreen Slideshow -->
+  <div class="swiper h-screen w-screen">
+    <div class="swiper-wrapper">
 
-    <!-- Judul -->
-    <h1 class="text-center text-xl sm:text-2xl font-bold text-pink-700 mb-4 leading-snug">
-      🎉 Selamat Ulang Tahun Sabriana Fatimah 🎉
-    </h1>
-
-    <!-- SLIDESHOW -->
-    <div class="swiper w-full rounded-xl shadow mb-6">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="nafa1.jpg" alt="Foto 1" class="w-full h-64 object-cover rounded-xl">
-        </div>
-        <div class="swiper-slide">
-          <img src="nafa2.jpg" alt="Foto 2" class="w-full h-64 object-cover rounded-xl">
-        </div>
-        <div class="swiper-slide">
-          <img src="nafa3.jpg" alt="Foto 3" class="w-full h-64 object-cover rounded-xl">
-        </div>
-        <div class="swiper-slide">
-          <img src="nafa4.jpg" alt="Foto 4" class="w-full h-64 object-cover rounded-xl">
-        </div>
-        <div class="swiper-slide">
-          <img src="nafa5.jpg" alt="Foto 5" class="w-full h-64 object-cover rounded-xl">
+      <!-- Slide 1 -->
+      <div class="swiper-slide flex items-center justify-center">
+        <div class="w-[90%] h-[90%] border-8 border-white rounded-2xl shadow-xl overflow-hidden">
+          <img src="nafa1.jpg" class="w-full h-full object-cover" alt="Foto 1" />
         </div>
       </div>
-      <!-- Optional navigation -->
-      <div class="swiper-pagination"></div>
-    </div>
 
-    <!-- Teks Ucapan -->
-    <p class="text-justify text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
-      7 Juli lahirlah seorang kakak perempuan yang hebat dengan segala hal berat yang ia tanggung di pundaknya.
-      Segalanya ia usahakan mulai dari kebahagiaan orang tua, kebahagiaan adiknya. Hingga mungkin impiannya sendiri harus menunggu untuk dia dapatkan.
-      <br><br>
-      Terima kasih sudah menjadi wanita hebat untuk diri sendiri, keluarga, sahabat, teman dan untuk mas.
-      <br><br>
-      💖 Happy Birthday Napaa 💖 <br>
-      Semoga senantiasa diberi kesehatan dan semua keinginan terkabulkan.
-    </p>
+      <!-- Slide 2 -->
+      <div class="swiper-slide flex items-center justify-center">
+        <div class="w-[90%] h-[90%] border-8 border-white rounded-2xl shadow-xl overflow-hidden">
+          <img src="nafa2.jpg" class="w-full h-full object-cover" alt="Foto 2" />
+        </div>
+      </div>
 
-    <!-- Tombol Musik -->
-    <div class="text-center">
-      <button id="toggleMusic" class="bg-pink-500 hover:bg-pink-600 text-white text-sm font-semibold py-2 px-6 rounded-full shadow">
-        🔊 Putar Musik
-      </button>
+      <!-- Slide 3 -->
+      <div class="swiper-slide flex items-center justify-center">
+        <div class="w-[90%] h-[90%] border-8 border-white rounded-2xl shadow-xl overflow-hidden">
+          <img src="nafa3.jpg" class="w-full h-full object-cover" alt="Foto 3" />
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="swiper-slide flex items-center justify-center">
+        <div class="w-[90%] h-[90%] border-8 border-white rounded-2xl shadow-xl overflow-hidden">
+          <img src="nafa4.jpg" class="w-full h-full object-cover" alt="Foto 4" />
+        </div>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="swiper-slide flex items-center justify-center">
+        <div class="w-[90%] h-[90%] border-8 border-white rounded-2xl shadow-xl overflow-hidden">
+          <img src="nafa5.jpg" class="w-full h-full object-cover" alt="Foto 5" />
+        </div>
+      </div>
+
     </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Tombol Musik -->
+  <div class="absolute top-4 right-4 z-50">
+    <button id="toggleMusic" class="bg-pink-500 hover:bg-pink-600 text-white text-sm font-semibold py-2 px-4 rounded-full shadow">
+      🔊 Putar Musik
+    </button>
   </div>
 
   <!-- Musik -->
@@ -82,16 +88,16 @@
     Browser kamu tidak mendukung pemutar audio.
   </audio>
 
-  <!-- Scripts -->
+  <!-- Script -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script>
     // Confetti
-    const duration = 6000;
+    const duration = 5000;
     const end = Date.now() + duration;
     (function frame() {
-      confetti({ particleCount: 4, angle: 60, spread: 55, origin: { x: 0 } });
-      confetti({ particleCount: 4, angle: 120, spread: 55, origin: { x: 1 } });
+      confetti({ particleCount: 4, angle: 60, spread: 60, origin: { x: 0 } });
+      confetti({ particleCount: 4, angle: 120, spread: 60, origin: { x: 1 } });
       if (Date.now() < end) requestAnimationFrame(frame);
     })();
 
@@ -99,7 +105,6 @@
     const music = document.getElementById("birthdayMusic");
     const toggleBtn = document.getElementById("toggleMusic");
     let isPlaying = false;
-
     toggleBtn.addEventListener("click", () => {
       if (!isPlaying) {
         music.play();
@@ -111,17 +116,17 @@
       isPlaying = !isPlaying;
     });
 
-    // Swiper init
+    // Swiper
     const swiper = new Swiper('.swiper', {
       loop: true,
       autoplay: {
-        delay: 2500,
+        delay: 3000,
         disableOnInteraction: false,
       },
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
-      },
+      }
     });
   </script>
 </body>
