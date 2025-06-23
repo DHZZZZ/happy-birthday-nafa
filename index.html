@@ -19,6 +19,7 @@
       50% {background-position: 100% 50%;}
       100% {background-position: 0% 50%;}
     }
+
     canvas#confetti-canvas {
       position: fixed;
       pointer-events: none;
@@ -73,18 +74,23 @@
     <h2 class="text-2xl font-bold text-center text-pink-600 mb-4">Sepatah Kata</h2>
     <p class="text-justify text-base leading-relaxed">
       7 Juli lahirlah seorang kakak perempuan yang hebat dengan segala hal berat yang ia tanggung di pundaknya.
-      Segalanya ia usahakan mulai dari kebahagiaan orang tua, kebahagiaan adiknya. Hingga mungkin impiannya sendiri harus menunggu untuk dia dapatkan. 
-      Pertambahan umur ini semoga hal hal baik datang padamu, menjadi pribadi yang lebih baik lagi, lebih dapat memngapresiasi diri sendiri.
+      Segalanya ia usahakan mulai dari kebahagiaan orang tua, kebahagiaan adiknya. Hingga mungkin impiannya sendiri harus menunggu untuk dia dapatkan.
       <br><br>
       Terima kasih sudah menjadi wanita hebat untuk diri sendiri, keluarga, sahabat, teman dan untuk Mas.
       <br><br>
       Happy Birthday Napaa<br>
-      Semoga senantiasa diberi kesehatan, kemudahan, rejeki dilancarkan dan semua yang kamu usahakan dapat terwujud. Mari merayakannya sama Mas, <3
+      Semoga senantiasa diberi kesehatan, kemudahan dalam urusannya, rejeki dilancarkan dan semua yang kamu usahakan dapat terwujud. Mari rayakan bersama Mas.<3
     </p>
   </div>
 
+  <!-- Gambar Hadiah -->
+  <div class="max-w-4xl mx-auto px-4 pb-10">
+    <img src="birthday gift.png" alt="Birthday Gift" class="w-full rounded-xl shadow-lg mb-6">
+    <img src="this is.png" alt="This is Your Voucher" class="w-full rounded-xl shadow-lg">
+  </div>
+
   <!-- Musik -->
-  <audio id="birthdayMusic" loop preload="auto">
+  <audio id="birthdayMusic" loop>
     <source src="Nadin Amizah - Semua Aku Dirayakan (Official Lyric Video).mp3" type="audio/mpeg">
     Browser kamu tidak mendukung pemutar audio.
   </audio>
@@ -106,7 +112,7 @@
       }
     });
 
-    // Confetti terus menerus
+    // Confetti
     const colors = ['#FF69B4', '#FFD700', '#FFB6C1', '#87CEFA', '#98FB98'];
     function fireConfetti() {
       confetti({ particleCount: 7, angle: 60, spread: 80, origin: { x: 0, y: Math.random() * 0.8 }, colors });
