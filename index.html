@@ -107,13 +107,22 @@
     });
 
     // Confetti
-    const duration = 5000;
-    const end = Date.now() + duration;
-    (function frame() {
-      confetti({ particleCount: 4, angle: 60, spread: 60, origin: { x: 0 } });
-      confetti({ particleCount: 4, angle: 120, spread: 60, origin: { x: 1 } });
-      if (Date.now() < end) requestAnimationFrame(frame);
-    })();
+   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+  // 🎉 Confetti infinite
+  function startConfetti() {
+    setInterval(() => {
+      confetti({
+        particleCount: 5,
+        angle: 60 + Math.random() * 60,
+        spread: 70,
+        origin: { x: Math.random(), y: 0 },
+        colors: ['#FF69B4', '#FFD700', '#FFB6C1', '#FFFFFF']
+      });
+    }, 1000);
+  }
+
+  startConfetti();
 
     // Musik
     const music = document.getElementById("birthdayMusic");
