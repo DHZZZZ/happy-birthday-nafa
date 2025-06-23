@@ -28,35 +28,34 @@
     <p class="mt-2 text-base sm:text-lg font-medium">7 Juli — hari lahirmu yang selalu dirayakan 💖</p>
   </div>
 
-  <!-- Galeri Foto (tanpa crop, full height per foto, bisa scroll) -->
-  <div class="flex flex-col space-y-6 items-center px-4 pb-12">
-    <!-- FOTO 1 -->
-    <div class="w-full max-w-4xl shadow-lg border-4 border-white rounded-xl overflow-hidden">
+  <!-- Tombol Musik -->
+  <div class="text-center mb-6">
+    <button id="toggleMusic" class="bg-pink-500 hover:bg-pink-600 text-white text-sm font-semibold py-2 px-6 rounded-full shadow">
+      🔊 Putar Musik
+    </button>
+  </div>
+
+  <!-- Galeri Foto Scroll -->
+  <div class="flex flex-col space-y-6 items-center px-4 pb-10">
+    <!-- Foto tanpa crop -->
+    <div class="w-full max-w-4xl border-4 border-white shadow-xl rounded-xl overflow-hidden">
       <img src="nafa1.jpg" alt="Foto 1" class="w-full h-auto object-contain" />
     </div>
-
-    <!-- FOTO 2 -->
-    <div class="w-full max-w-4xl shadow-lg border-4 border-white rounded-xl overflow-hidden">
+    <div class="w-full max-w-4xl border-4 border-white shadow-xl rounded-xl overflow-hidden">
       <img src="nafa2.jpg" alt="Foto 2" class="w-full h-auto object-contain" />
     </div>
-
-    <!-- FOTO 3 -->
-    <div class="w-full max-w-4xl shadow-lg border-4 border-white rounded-xl overflow-hidden">
+    <div class="w-full max-w-4xl border-4 border-white shadow-xl rounded-xl overflow-hidden">
       <img src="nafa3.jpg" alt="Foto 3" class="w-full h-auto object-contain" />
     </div>
-
-    <!-- FOTO 4 -->
-    <div class="w-full max-w-4xl shadow-lg border-4 border-white rounded-xl overflow-hidden">
+    <div class="w-full max-w-4xl border-4 border-white shadow-xl rounded-xl overflow-hidden">
       <img src="nafa4.jpg" alt="Foto 4" class="w-full h-auto object-contain" />
     </div>
-
-    <!-- FOTO 5 -->
-    <div class="w-full max-w-4xl shadow-lg border-4 border-white rounded-xl overflow-hidden">
+    <div class="w-full max-w-4xl border-4 border-white shadow-xl rounded-xl overflow-hidden">
       <img src="nafa5.jpg" alt="Foto 5" class="w-full h-auto object-contain" />
     </div>
   </div>
 
-  <!-- Ucapan Ulang Tahun -->
+  <!-- Ucapan -->
   <div class="bg-white text-gray-800 max-w-3xl mx-auto px-6 py-8 rounded-xl shadow-md mb-10">
     <h2 class="text-xl sm:text-2xl font-bold text-center text-pink-600 mb-4">💌 Ucapan Spesial 💌</h2>
     <p class="text-justify text-base leading-relaxed">
@@ -68,12 +67,6 @@
       💖 Happy Birthday Napaa 💖 <br>
       Semoga senantiasa diberi kesehatan dan semua keinginan terkabulkan.
     </p>
-
-    <div class="text-center mt-6">
-      <button id="toggleMusic" class="bg-pink-500 hover:bg-pink-600 text-white text-sm font-semibold py-2 px-6 rounded-full shadow">
-        🔊 Putar Musik
-      </button>
-    </div>
   </div>
 
   <!-- Musik -->
@@ -82,11 +75,11 @@
     Browser kamu tidak mendukung pemutar audio.
   </audio>
 
-  <!-- Script -->
+  <!-- Confetti & Musik Script -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
     // Confetti
-    const duration = 6000;
+    const duration = 5000;
     const end = Date.now() + duration;
     (function frame() {
       confetti({ particleCount: 4, angle: 60, spread: 60, origin: { x: 0 } });
@@ -98,15 +91,20 @@
     const music = document.getElementById("birthdayMusic");
     const toggleBtn = document.getElementById("toggleMusic");
     let isPlaying = false;
+
     toggleBtn.addEventListener("click", () => {
       if (!isPlaying) {
-        music.play();
-        toggleBtn.textContent = "⏸️ Pause Musik";
+        music.play().then(() => {
+          toggleBtn.textContent = "⏸️ Pause Musik";
+          isPlaying = true;
+        }).catch((err) => {
+          alert("Browser mencegah autoplay. Klik sekali lagi atau coba dari perangkat lain.");
+        });
       } else {
         music.pause();
         toggleBtn.textContent = "🔊 Putar Musik";
+        isPlaying = false;
       }
-      isPlaying = !isPlaying;
     });
   </script>
 </body>
