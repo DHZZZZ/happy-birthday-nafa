@@ -5,7 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Birthday Sabriana!</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
   <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffe4e6;
+    }
     canvas#confetti-canvas {
       position: fixed;
       pointer-events: none;
@@ -15,48 +21,32 @@
       height: 100%;
       z-index: 10;
     }
+    .swiper-slide img {
+      object-fit: contain;
+      width: 100%;
+      height: 100vh;
+    }
   </style>
 </head>
-<body class="bg-pink-100 text-gray-800">
+<body>
 
   <!-- Confetti -->
   <canvas id="confetti-canvas"></canvas>
 
-  <!-- Header Judul -->
-  <div class="text-center py-8 px-4">
-    <h1 class="text-3xl sm:text-4xl font-bold text-pink-600">🎉 Selamat Ulang Tahun Sabriana 🎉</h1>
-    <p class="mt-2 text-base sm:text-lg font-medium">7 Juli — hari lahirmu yang selalu dirayakan 💖</p>
-  </div>
-
-  <!-- Tombol Musik -->
-  <div class="text-center mb-6">
-    <button id="toggleMusic" class="bg-pink-500 hover:bg-pink-600 text-white text-sm font-semibold py-2 px-6 rounded-full shadow">
-      🔊 Putar Musik
-    </button>
-  </div>
-
-  <!-- Galeri Foto Scroll -->
-  <div class="flex flex-col space-y-6 items-center px-4 pb-10">
-    <!-- Foto tanpa crop -->
-    <div class="w-full max-w-4xl border-4 border-white shadow-xl rounded-xl overflow-hidden">
-      <img src="nafa1.jpg" alt="Foto 1" class="w-full h-auto object-contain" />
+  <!-- Swiper Slide Fullscreen -->
+  <div class="swiper mySwiper w-full h-screen">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="nafa1.jpg" alt="Foto 1"/></div>
+      <div class="swiper-slide"><img src="nafa2.jpg" alt="Foto 2"/></div>
+      <div class="swiper-slide"><img src="nafa3.jpg" alt="Foto 3"/></div>
+      <div class="swiper-slide"><img src="nafa4.jpg" alt="Foto 4"/></div>
+      <div class="swiper-slide"><img src="nafa5.jpg" alt="Foto 5"/></div>
     </div>
-    <div class="w-full max-w-4xl border-4 border-white shadow-xl rounded-xl overflow-hidden">
-      <img src="nafa2.jpg" alt="Foto 2" class="w-full h-auto object-contain" />
-    </div>
-    <div class="w-full max-w-4xl border-4 border-white shadow-xl rounded-xl overflow-hidden">
-      <img src="nafa3.jpg" alt="Foto 3" class="w-full h-auto object-contain" />
-    </div>
-    <div class="w-full max-w-4xl border-4 border-white shadow-xl rounded-xl overflow-hidden">
-      <img src="nafa4.jpg" alt="Foto 4" class="w-full h-auto object-contain" />
-    </div>
-    <div class="w-full max-w-4xl border-4 border-white shadow-xl rounded-xl overflow-hidden">
-      <img src="nafa5.jpg" alt="Foto 5" class="w-full h-auto object-contain" />
-    </div>
+    <div class="swiper-pagination"></div>
   </div>
 
   <!-- Ucapan -->
-  <div class="bg-white text-gray-800 max-w-3xl mx-auto px-6 py-8 rounded-xl shadow-md mb-10">
+  <div class="bg-white text-gray-800 max-w-3xl mx-auto px-6 py-8 rounded-xl shadow-md my-10">
     <h2 class="text-xl sm:text-2xl font-bold text-center text-pink-600 mb-4">💌 Ucapan Spesial 💌</h2>
     <p class="text-justify text-base leading-relaxed">
       7 Juli lahirlah seorang kakak perempuan yang hebat dengan segala hal berat yang ia tanggung di pundaknya.
@@ -67,6 +57,12 @@
       💖 Happy Birthday Napaa 💖 <br>
       Semoga senantiasa diberi kesehatan dan semua keinginan terkabulkan.
     </p>
+
+    <div class="text-center mt-6">
+      <button id="toggleMusic" class="bg-pink-500 hover:bg-pink-600 text-white text-sm font-semibold py-2 px-6 rounded-full shadow">
+        🔊 Putar Musik
+      </button>
+    </div>
   </div>
 
   <!-- Musik -->
@@ -75,9 +71,20 @@
     Browser kamu tidak mendukung pemutar audio.
   </audio>
 
-  <!-- Confetti & Musik Script -->
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
+    // SwiperJS
+    const swiper = new Swiper(".mySwiper", {
+      loop: true,
+      pagination: { el: ".swiper-pagination", clickable: true },
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+    });
+
     // Confetti
     const duration = 5000;
     const end = Date.now() + duration;
@@ -87,7 +94,7 @@
       if (Date.now() < end) requestAnimationFrame(frame);
     })();
 
-    // Musik
+    // Musik Toggle
     const music = document.getElementById("birthdayMusic");
     const toggleBtn = document.getElementById("toggleMusic");
     let isPlaying = false;
@@ -97,8 +104,8 @@
         music.play().then(() => {
           toggleBtn.textContent = "⏸️ Pause Musik";
           isPlaying = true;
-        }).catch((err) => {
-          alert("Browser mencegah autoplay. Klik sekali lagi atau coba dari perangkat lain.");
+        }).catch(() => {
+          alert("Browser mencegah autoplay. Klik ulang atau coba dari HP.");
         });
       } else {
         music.pause();
