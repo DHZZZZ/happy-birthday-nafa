@@ -109,20 +109,42 @@
     // Confetti
    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script>
-  // 🎉 Confetti infinite
-  function startConfetti() {
-    setInterval(() => {
-      confetti({
-        particleCount: 5,
-        angle: 60 + Math.random() * 60,
-        spread: 70,
-        origin: { x: Math.random(), y: 0 },
-        colors: ['#FF69B4', '#FFD700', '#FFB6C1', '#FFFFFF']
-      });
-    }, 1000);
+  // 🎉 Konfigurasi warna dan jumlah
+  const colors = ['#FF69B4', '#FFD700', '#FFB6C1', '#87CEFA', '#98FB98'];
+
+  function fireConfetti() {
+    // kiri
+    confetti({
+      particleCount: 7,
+      angle: 60,
+      spread: 80,
+      origin: { x: 0, y: Math.random() * 0.8 },
+      colors: colors,
+    });
+
+    // kanan
+    confetti({
+      particleCount: 7,
+      angle: 120,
+      spread: 80,
+      origin: { x: 1, y: Math.random() * 0.8 },
+      colors: colors,
+    });
+
+    // tengah atas
+    confetti({
+      particleCount: 10,
+      angle: 90,
+      spread: 80,
+      origin: { x: 0.5, y: 0 },
+      colors: colors,
+    });
   }
 
-  startConfetti();
+  // Jalankan confetti setiap 1 detik terus menerus
+  setInterval(fireConfetti, 1000);
+</script>
+
 
     // Musik
     const music = document.getElementById("birthdayMusic");
