@@ -2,8 +2,8 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Birthday Sabriana!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selamat Ulang Tahun Sabriana!</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
   <style>
@@ -38,19 +38,33 @@
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(255, 192, 203, 0.4);
     }
+    .confetti-icon {
+      position: absolute;
+      width: 50px;
+      opacity: 0.5;
+      animation: float 6s infinite ease-in-out;
+    }
+    .confetti-icon:nth-child(even) {
+      animation-duration: 8s;
+    }
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 0.5; }
+      50% { transform: translateY(-20px); opacity: 1; }
+      100% { transform: translateY(0); opacity: 0.5; }
+    }
   </style>
 </head>
 <body class="font-sans">
 
-  <!-- Confetti -->
+  <!-- Confetti Canvas -->
   <canvas id="confetti-canvas"></canvas>
 
-  <!-- Judul -->
+  <!-- Header -->
   <div class="text-center py-6 px-4 z-20 relative">
     <h1 class="text-4xl font-bold text-pink-700 drop-shadow-md">Selamat Ulang Tahun Sabriana Fatimah</h1>
   </div>
 
-  <!-- Tombol Musik -->
+  <!-- Musik Button -->
   <div class="text-center mb-4 z-20 relative">
     <button id="toggleMusic" class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-6 rounded-full shadow-lg">
       🔊 Putar Musik
@@ -58,14 +72,13 @@
   </div>
 
   <!-- Swiper Slide -->
-  <div class="swiper mySwiper w-full h-screen z-10 relative">
-     <!-- Dekorasi tambahan di sekitar -->
-  <img src="15a9170f-0ce7-4c56-a0cf-5e00c056a294.png" alt="confetti" class="confetti-float absolute bottom-10 left-10 w-10 opacity-50 z-0">
-  <div class="absolute top-10 right-10 animate-bounce text-4xl z-0">🎈</div>
-  <div class="absolute top-1/2 left-5 animate-ping text-4xl z-0">🎉</div>
-
+  <div class="swiper mySwiper w-full h-screen z-10 relative bg-white rounded-xl">
     <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="nafa1.jpg" alt="Foto 1"></div>
+      <div class="swiper-slide relative">
+        <img src="nafa1.jpg" alt="Foto 1">
+        <img src="15a9170f-0ce7-4c56-a0cf-5e00c056a294.png" class="confetti-icon top-10 left-5" style="z-index: 20;">
+        <img src="15a9170f-0ce7-4c56-a0cf-5e00c056a294.png" class="confetti-icon bottom-10 right-5" style="z-index: 20;">
+      </div>
       <div class="swiper-slide"><img src="nafa2.jpg" alt="Foto 2"></div>
       <div class="swiper-slide"><img src="nafa3.jpg" alt="Foto 3"></div>
       <div class="swiper-slide"><img src="nafa4.jpg" alt="Foto 4"></div>
@@ -84,25 +97,8 @@
       Terima kasih sudah menjadi wanita hebat untuk diri sendiri, keluarga, sahabat, teman dan untuk Mas.
       <br><br>
       Happy Birthday Napaa<br>
-      Semoga senantiasa diberi kesehatan, kemudahan dalam urusannya, rejeki dilancarkan dan semua yang kamu usahakan dapat terwujud. Mari rayakan bersama Mas.<3
+      Semoga senantiasa diberi kesehatan, kemudahan, rejeki dilancarkan dan semua yang kamu usahakan dapat terwujud
     </p>
-  </div>
-
-   <!-- Tombol SPA Voucher -->
-  <div class="text-center mb-10">
-    <button onclick="showVoucher()" class="wiggle bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-6 rounded-full shadow-lg">
-      🎁 Lihat Hadiah Disini
-    </button>
-  </div>
-
-  <!-- Voucher SPA Section -->
-  <div id="voucherSection" class="hidden w-full max-w-3xl mx-auto flex flex-col items-center">
-    <div class="mb-10 w-full">
-      <img src="this%20is.png" alt="Voucher Tiket" class="rounded-xl shadow-lg w-full">
-    </div>
-    <div class="mb-8 w-full">
-      <img src="birthday%20gift.png" alt="Voucher Gift" class="rounded-xl shadow-lg w-full">
-    </div>
   </div>
 
   <!-- Musik -->
@@ -115,7 +111,6 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
-    // Swiper
     const swiper = new Swiper(".mySwiper", {
       loop: true,
       pagination: {
@@ -128,7 +123,7 @@
       }
     });
 
-    // Confetti
+    // Confetti terus-menerus
     const colors = ['#FF69B4', '#FFD700', '#FFB6C1', '#87CEFA', '#98FB98'];
     function fireConfetti() {
       confetti({ particleCount: 7, angle: 60, spread: 80, origin: { x: 0, y: Math.random() * 0.8 }, colors });
@@ -141,6 +136,7 @@
     const music = document.getElementById("birthdayMusic");
     const toggleBtn = document.getElementById("toggleMusic");
     let isPlaying = false;
+
     toggleBtn.addEventListener("click", () => {
       if (!isPlaying) {
         music.play().then(() => {
@@ -155,12 +151,6 @@
         isPlaying = false;
       }
     });
-     // SPA Voucher
-    function showVoucher() {
-      const voucher = document.getElementById("voucherSection");
-      voucher.classList.remove("hidden");
-      voucher.scrollIntoView({ behavior: "smooth" });
-    }
   </script>
 </body>
 </html>
