@@ -1,279 +1,110 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Happy Birthday ❤️</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
-<style>
+<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-
-font-family:Poppins,sans-serif;
-
-background:linear-gradient(
-135deg,
-#F0F9FF,
-#E0F2FE,
-#BAE6FD,
-#7DD3FC
-);
-
-background-size:400% 400%;
-
-animation:bg 15s ease infinite;
-
-overflow-x:hidden;
-
-}
-
-@keyframes bg{
-
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-
-}
-
-section{
-
-min-height:100dvh;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-padding:30px;
-
-}
-
-.hero{
-
-text-align:center;
-
-}
-
-.hero h1{
-
-font-family:"Playfair Display",serif;
-
-font-size:42px;
-
-color:#1D4ED8;
-
-line-height:1.2;
-
-}
-
-.hero h2{
-
-margin-top:20px;
-
-font-weight:400;
-
-color:#2563EB;
-
-}
-
-.hero p{
-
-margin-top:25px;
-
-font-size:15px;
-
-opacity:.8;
-
-animation:updown 2s infinite;
-
-}
-
-@keyframes updown{
-
-0%{transform:translateY(0);}
-50%{transform:translateY(-8px);}
-100%{transform:translateY(0);}
-
-}
-
-.photo{
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-}
-
-.photo img{
-
-width:100%;
-
-max-width:420px;
-
-max-height:88dvh;
-
-object-fit:contain;
-
-border-radius:25px;
-
-background:white;
-
-padding:12px;
-
-box-shadow:0 25px 60px rgba(0,0,0,.15);
-
-transition:.5s;
-
-}
-
-.photo img:hover{
-
-transform:scale(1.02);
-
-}
-
-.card{
-
-width:min(92%,700px);
-
-background:rgba(255,255,255,.88);
-
-backdrop-filter:blur(15px);
-
-border-radius:25px;
-
-padding:35px;
-
-box-shadow:0 20px 50px rgba(0,0,0,.15);
-
-}
-
-.card h2{
-
-font-family:"Playfair Display",serif;
-
-color:#2563EB;
-
-margin-bottom:20px;
-
-text-align:center;
-
-}
-
-.card p{
-
-line-height:2;
-
-color:#374151;
-
-text-align:justify;
-
-}
-
-.footer{
-
-margin-top:30px;
-
-text-align:center;
-
-color:#2563EB;
-
-font-weight:600;
-
-}
-
-.fade{
-
-opacity:0;
-
-transform:translateY(40px);
-
-transition:1s;
-
-}
-
-.fade.show{
-
-opacity:1;
-
-transform:none;
-
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<section class="hero fade">
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
 
-<div>
+<canvas id="confetti-canvas"></canvas>
+
+<!-- HERO -->
+
+<section class="hero reveal">
 
 <h1>Selamat Ulang Tahun</h1>
 
-<h1>Sabriana Fatimah ❤️</h1>
+<h2>Sabriana Fatimah ❤️</h2>
 
-<h2>23 Tahun</h2>
+<p>
 
-<h2>Selamat Atas Gelar S.E 🎓</h2>
+23 Tahun
 
-<p>Scroll ke bawah ↓</p>
+<br>
+
+Selamat Atas Gelar S.E 🎓
+
+</p>
+
+<div class="scroll-text">
+
+Scroll ke bawah
+
+↓
 
 </div>
 
 </section>
 
-<section class="photo fade">
+<!-- SLIDER -->
+
+<section class="slider-section">
+
+<div class="swiper birthdaySwiper">
+
+<div class="swiper-wrapper">
+
+<div class="swiper-slide">
 
 <img src="nafa1.jpg">
 
-</section>
+</div>
 
-<section class="photo fade">
+<div class="swiper-slide">
 
 <img src="nafa2.jpg">
 
-</section>
+</div>
 
-<section class="photo fade">
+<div class="swiper-slide">
 
 <img src="nafa3.jpg">
 
-</section>
+</div>
 
-<section class="photo fade">
+<div class="swiper-slide">
 
 <img src="nafa4.jpg">
 
-</section>
+</div>
 
-<section class="photo fade">
+<div class="swiper-slide">
 
 <img src="nafa5.jpg">
 
+</div>
+
+</div>
+
+<div class="swiper-pagination"></div>
+
+</div>
+
 </section>
 
-<section class="fade">
+<!-- SURAT -->
+
+<section class="letter reveal">
 
 <div class="card">
 
@@ -285,23 +116,33 @@ Haloo halooo...
 
 Ini tahun kedua Mas bisa ikut merayakan ulang tahun Napa.
 
-Perjalanan menuju usia 23 tahun memang tidak mudah. Banyak hal yang datang bersamaan, mulai dari usaha, skripsi, hingga berbagai tantangan yang mungkin tidak semua orang tahu.
+Perjalanan menuju usia 23 tahun memang tidak mudah.
 
-Mas bangga karena pada akhirnya kamu berhasil melewati semuanya. Gelar S.E yang kamu dapatkan hari ini adalah bukti bahwa semua perjuanganmu tidak sia-sia.
+Banyak hal yang datang bersamaan.
 
-Semoga di umur yang baru ini, kesehatanmu selalu terjaga, langkahmu dipermudah, rezekimu semakin luas, dan semua doa yang selama ini kamu simpan perlahan satu per satu menjadi kenyataan.
+Mulai dari usaha, skripsi, hingga berbagai tantangan yang mungkin tidak semua orang tahu.
 
-Terima kasih sudah menjadi wanita hebat, anak yang membanggakan orang tua, kakak yang baik, dan seseorang yang selalu berusaha menjadi lebih baik setiap harinya.
+Mas bangga karena akhirnya kamu berhasil melewati semuanya.
 
-Semoga Mas masih bisa menemani setiap perjalananmu, merayakan lebih banyak pencapaianmu, dan menjadi tempat pulang ketika dunia terasa melelahkan.
+Gelar S.E yang kamu dapatkan hari ini adalah bukti bahwa semua perjuanganmu tidak sia-sia.
 
-Selamat ulang tahun, Sayang.
+Semoga di umur yang baru ini kesehatanmu selalu terjaga.
+
+Rezekimu semakin luas.
+
+Doamu satu per satu dikabulkan.
+
+Terima kasih sudah menjadi wanita hebat.
+
+Semoga Mas masih bisa menemani perjalananmu sampai kapan pun.
 
 ❤️
 
+Selamat ulang tahun.
+
 </p>
 
-<div class="footer">
+<div class="signature">
 
 Made with Love ❤️
 
@@ -315,25 +156,29 @@ Made with Love ❤️
 
 </section>
 
-<script>
+<!-- MUSIC -->
 
-const observer=new IntersectionObserver((entries)=>{
+<div id="musicButton">
 
-entries.forEach(entry=>{
+<button id="toggleMusic">
 
-if(entry.isIntersecting){
+▶
 
-entry.target.classList.add("show");
+</button>
 
-}
+</div>
 
-})
+<audio id="music" loop>
 
-},{threshold:.2})
+<source src="Nadin Amizah - Semua Aku Dirayakan (Official Lyric Video).mp3">
 
-document.querySelectorAll(".fade").forEach(el=>observer.observe(el))
+</audio>
 
-</script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+<script src="script.js"></script>
 
 </body>
 </html>
