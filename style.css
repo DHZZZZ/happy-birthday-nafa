@@ -1,0 +1,519 @@
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    overflow-x:hidden;
+
+    color:#1e293b;
+
+    background:linear-gradient(
+        135deg,
+        #f8fbff,
+        #e0f2fe,
+        #bae6fd,
+        #7dd3fc
+    );
+
+    background-size:400% 400%;
+
+    animation:bgMove 15s ease infinite;
+
+}
+
+/* ===========================
+   BACKGROUND
+=========================== */
+
+@keyframes bgMove{
+
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+
+}
+
+.blob{
+
+    position:fixed;
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+    opacity:.35;
+
+    z-index:-1;
+
+    animation:blobMove 15s ease-in-out infinite alternate;
+
+}
+
+.blob1{
+
+    width:320px;
+    height:320px;
+
+    background:#60a5fa;
+
+    top:-100px;
+    left:-120px;
+
+}
+
+.blob2{
+
+    width:350px;
+    height:350px;
+
+    background:#93c5fd;
+
+    right:-120px;
+    bottom:-120px;
+
+}
+
+@keyframes blobMove{
+
+from{
+
+transform:translateY(0px) translateX(0px);
+
+}
+
+to{
+
+transform:translateY(-40px) translateX(30px);
+
+}
+
+}
+
+/* ===========================
+SECTION
+=========================== */
+
+section{
+
+min-height:100dvh;
+
+padding:40px 20px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+/* ===========================
+HERO
+=========================== */
+
+.hero{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.hero h1{
+
+font-family:"Playfair Display",serif;
+
+font-size:2.5rem;
+
+color:#1d4ed8;
+
+margin-bottom:12px;
+
+line-height:1.2;
+
+}
+
+.hero h2{
+
+font-size:1.35rem;
+
+font-weight:600;
+
+color:#2563eb;
+
+margin-bottom:10px;
+
+}
+
+.hero p{
+
+font-size:1rem;
+
+color:#475569;
+
+line-height:1.8;
+
+}
+
+.scroll-text{
+
+margin-top:50px;
+
+font-size:.95rem;
+
+color:#2563eb;
+
+animation:float 2s infinite;
+
+}
+
+@keyframes float{
+
+0%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+100%{transform:translateY(0);}
+
+}
+
+/* ===========================
+SLIDER
+=========================== */
+
+.slider-section{
+
+padding:0;
+
+}
+
+.swiper{
+
+width:100%;
+
+height:100dvh;
+
+}
+
+.swiper-slide{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:20px;
+
+}
+
+.swiper-slide img{
+
+width:100%;
+
+max-width:430px;
+
+max-height:88dvh;
+
+object-fit:contain;
+
+background:white;
+
+padding:12px;
+
+border-radius:28px;
+
+box-shadow:
+
+0 15px 45px rgba(0,0,0,.12);
+
+transition:.4s;
+
+}
+
+.swiper-slide-active img{
+
+transform:scale(1.02);
+
+}
+
+.swiper-pagination-bullet{
+
+background:white;
+
+opacity:.6;
+
+}
+
+.swiper-pagination-bullet-active{
+
+background:#2563eb;
+
+opacity:1;
+
+}
+
+/* ===========================
+LETTER
+=========================== */
+
+.letter{
+
+padding:80px 20px;
+
+}
+
+.card{
+
+width:min(92%,760px);
+
+padding:35px;
+
+border-radius:28px;
+
+background:rgba(255,255,255,.80);
+
+backdrop-filter:blur(18px);
+
+-webkit-backdrop-filter:blur(18px);
+
+box-shadow:
+
+0 20px 60px rgba(0,0,0,.15);
+
+}
+
+.card h2{
+
+font-family:"Playfair Display",serif;
+
+font-size:2rem;
+
+text-align:center;
+
+margin-bottom:25px;
+
+color:#2563eb;
+
+}
+
+.card p{
+
+line-height:2.1;
+
+font-size:1rem;
+
+text-align:justify;
+
+color:#334155;
+
+}
+
+.signature{
+
+margin-top:35px;
+
+text-align:center;
+
+font-weight:600;
+
+font-size:1rem;
+
+color:#2563eb;
+
+}
+
+/* ===========================
+MUSIC BUTTON
+=========================== */
+
+#musicButton{
+
+position:fixed;
+
+right:20px;
+
+bottom:20px;
+
+z-index:999;
+
+}
+
+#toggleMusic{
+
+width:65px;
+
+height:65px;
+
+border:none;
+
+border-radius:50%;
+
+cursor:pointer;
+
+font-size:1.4rem;
+
+background:#2563eb;
+
+color:white;
+
+box-shadow:
+
+0 12px 30px rgba(37,99,235,.35);
+
+transition:.3s;
+
+}
+
+#toggleMusic:hover{
+
+transform:scale(1.08);
+
+}
+
+#toggleMusic.playing{
+
+animation:pulse 2s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{
+
+box-shadow:
+
+0 0 0 0 rgba(37,99,235,.45);
+
+}
+
+70%{
+
+box-shadow:
+
+0 0 0 18px rgba(37,99,235,0);
+
+}
+
+100%{
+
+box-shadow:
+
+0 0 0 0 rgba(37,99,235,0);
+
+}
+
+}
+
+/* ===========================
+REVEAL
+=========================== */
+
+.reveal{
+
+opacity:0;
+
+transform:translateY(50px);
+
+transition:1s;
+
+}
+
+.reveal.active{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+/* ===========================
+RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:2rem;
+
+}
+
+.hero h2{
+
+font-size:1.2rem;
+
+}
+
+.card{
+
+padding:25px;
+
+}
+
+.card h2{
+
+font-size:1.7rem;
+
+}
+
+.card p{
+
+font-size:.95rem;
+
+line-height:2;
+
+}
+
+.swiper-slide img{
+
+max-width:95%;
+
+padding:10px;
+
+}
+
+#toggleMusic{
+
+width:58px;
+
+height:58px;
+
+font-size:1.2rem;
+
+}
+
+}
+
+@media(min-width:1024px){
+
+.hero h1{
+
+font-size:4rem;
+
+}
+
+.hero h2{
+
+font-size:2rem;
+
+}
+
+.card{
+
+padding:50px;
+
+}
+
+}
