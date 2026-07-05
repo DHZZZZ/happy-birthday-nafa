@@ -1,12 +1,3 @@
-/* ==========================================
-   BIRTHDAY WEBSITE V3
-   script.js
-========================================== */
-
-// ===============================
-// SWIPER
-// ===============================
-
 const swiper = new Swiper(".birthdaySwiper", {
     loop: true,
     speed: 1000,
@@ -24,10 +15,6 @@ const swiper = new Swiper(".birthdaySwiper", {
     effect: "slide"
 });
 
-
-// ===============================
-// MUSIC
-// ===============================
 
 const music = document.getElementById("music");
 const button = document.getElementById("toggleMusic");
@@ -73,10 +60,6 @@ button.addEventListener("click", async () => {
 });
 
 
-// ===============================
-// REVEAL ON SCROLL
-// ===============================
-
 const reveals = document.querySelectorAll(".reveal");
 
 const revealObserver = new IntersectionObserver(
@@ -110,10 +93,6 @@ revealObserver.observe(item);
 });
 
 
-// ===============================
-// CONFETTI
-// ===============================
-
 const confettiColors = [
 
 "#3B82F6",
@@ -124,8 +103,6 @@ const confettiColors = [
 
 ];
 
-
-// Ledakan utama
 
 function launchCelebration(){
 
@@ -143,8 +120,6 @@ colors:confettiColors
 
 }
 
-
-// Confetti kecil
 
 function miniConfetti(){
 
@@ -172,10 +147,6 @@ colors:confettiColors
 
 setInterval(miniConfetti,6000);
 
-
-// ===============================
-// CONFETTI SAAT SURAT MUNCUL
-// ===============================
 
 const letter = document.querySelector(".letter");
 
@@ -219,11 +190,6 @@ threshold:.5
 
 letterObserver.observe(letter);
 
-
-// ===============================
-// FLOATING TITLE
-// ===============================
-
 const hero = document.querySelector(".hero");
 
 window.addEventListener("scroll",()=>{
@@ -233,11 +199,6 @@ const offset = window.scrollY;
 hero.style.transform = `translateY(${offset*0.15}px)`;
 
 });
-
-
-// ===============================
-// IMAGE EFFECT
-// ===============================
 
 const images=document.querySelectorAll(".swiper-slide img");
 
@@ -258,10 +219,6 @@ img.style.transform="scale(1)";
 });
 
 
-// ===============================
-// WELCOME CONFETTI
-// ===============================
-
 setTimeout(()=>{
 
 confetti({
@@ -279,10 +236,6 @@ colors:confettiColors
 },1000);
 
 
-// ===============================
-// AUTO PAUSE MUSIC
-// ===============================
-
 document.addEventListener("visibilitychange",()=>{
 
 if(document.hidden && playing){
@@ -299,10 +252,6 @@ music.play();
 
 });
 
-
-// ===============================
-// CONSOLE MESSAGE
-// ===============================
 
 console.log("%c❤️ Happy Birthday Napa ❤️",
 "color:#2563eb;font-size:22px;font-weight:bold;");
